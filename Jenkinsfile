@@ -6,6 +6,7 @@ pipeline {
     triggers {
         pollSCM '* * * * *'
 }
+
     stages {
         stage('maven package') {
             steps {
@@ -14,16 +15,13 @@ pipeline {
                 sh 'mvn package'
             }
         } 
+
          stage('test') {
             steps {
                 sh 'mvn test'
             }
         }
-        stage('test') {
-            steps {
-                echo 'test'
-            }
-        }
+       
          stage('deploy') {
             steps {
                 echo 'deploy'
